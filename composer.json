@@ -1,7 +1,9 @@
 {
     "name": "maxlzp/range",
-    "description": "Use Range instead of pair of values",
+    "version": "1.0.0",
+    "description": "Range to be used instead of pair of values",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "MaxLZp",
@@ -9,14 +11,19 @@
         }
     ],
     "require": {
-        "php" : ">=7.1.0"
+        "php": "^7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.3"
+        "phpunit/phpunit": "^9.3.3"
     },
-    "autoload": {
+    "autoload" : {
+        "psr-4" : {
+            "maxlzp\\range\\" : "src/"
+        }
+    },
+    "autoload-dev": {
         "psr-4": {
-            "maxlzp\\range\\": "src/"
+            "maxlzp\\range\\tests\\": "tests/"
         }
     }
 }

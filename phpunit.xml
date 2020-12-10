@@ -1,16 +1,14 @@
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
+        xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
         backupGlobals="true"
         backupStaticAttributes="false"
-        bootstrap="tests/_bootstrap.php"
-        cacheTokens="false"
+        bootstrap="vendor\autoload.php"
         colors="false"
         convertErrorsToExceptions="true"
         convertNoticesToExceptions="true"
         convertWarningsToExceptions="true"
         forceCoversAnnotation="false"
-        mapTestClassNameToCoveredClassName="false"
         printerClass="PHPUnit_TextUI_ResultPrinter"
         processIsolation="false"
         stopOnError="false"
@@ -18,31 +16,23 @@
         stopOnIncomplete="false"
         stopOnSkipped="false"
         stopOnRisky="false"
-        testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
+        testSuiteLoaderFile="phpunit/src/Runner/StandardTestSuiteLoader.php"
         timeoutForSmallTests="1"
         timeoutForMediumTests="10"
         timeoutForLargeTests="60"
-        verbose="false">
+        verbose="true">
     <testsuites>
-        <testsuite name="Margin">
-            <directory>./tests/margin/</directory>
-        </testsuite>
-        <testsuite name="Range">
-            <directory>./tests/range/</directory>
+        <testsuite name="Unit">
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src/</directory>
-        </whitelist>
-        <blacklist>
-            <directory suffix=".php">./tests/</directory>
-            <directory suffix=".php">./vendor/</directory>
-        </blacklist>
-    </filter>
-    <logging>
-        <log type="coverage-html" target="./testResults/" chartset="UTF-8"
-             yui="true" highlight="true"
-             lowUpperBound="50" highLowerBound="80" />
-    </logging>
+    <coverage>
+        <include>
+            <directory>./src/</directory>
+        </include>
+        <report>
+            <html outputDirectory="testResults/html-coverage" lowUpperBound="50" highLowerBound="90"/>
+        </report>
+    </coverage>
+
 </phpunit>
