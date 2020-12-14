@@ -1,4 +1,5 @@
 <?php
+
 namespace maxlzp\range\Range;
 
 use maxlzp\range\Margin\MarginInterface;
@@ -17,7 +18,7 @@ interface RangeInterface
      *
      * @return RangeInterface Range that represents gat between two Ranges
      */
-    public function gap(RangeInterface $other);
+    public function gap(RangeInterface $other): RangeInterface;
 
     /**
      * Starting margin of the range
@@ -32,7 +33,6 @@ interface RangeInterface
      * @return MarginInterface
      */
     public function getRight(): MarginInterface;
-
 
     /**
      * Range width
@@ -74,24 +74,5 @@ interface RangeInterface
      * @return bool True if touches; false - otherwise
      */
     public function touches(RangeInterface $other): bool;
-
-//
-//    /**
-//     * Split Range into 2
-//     *
-//     * @param mixed $margin Margin to split range at.
-//     *
-//     * @return array Collection of 2 Ranges
-//     */
-//    public function split($margin);
-//
-//    /**
-//     * Split Range to several ranges
-//     *
-//     * @param array $margins Margins to split Range at
-//     *
-//     * @return mixed
-//     */
-//    public function splitMany(array $margins);
 
 }

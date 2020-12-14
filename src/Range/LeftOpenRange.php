@@ -5,16 +5,12 @@
 
 namespace maxlzp\range\Range;
 
-use maxlzp\range\Margin\MarginInterface;
-use maxlzp\range\Range\Range;
-use maxlzp\range\Range\RangeInterface;
-
 /**
  * Class LeftOpenRange
  *
  * @package Range
  */
-class LeftOpenRange extends Range
+class LeftOpenRange extends RangeImpl
 {
 
     #region RangeInterface implementation

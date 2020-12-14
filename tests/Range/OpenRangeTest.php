@@ -3,7 +3,7 @@
  * @author   MaxLZp <lmax_job@mail.ru>
  */
 
-namespace Range;
+namespace maxlzp\range\tests\Range;
 
 use maxlzp\range\Range\Range;
 use maxlzp\range\Range\RangeInterface;
