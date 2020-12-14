@@ -11,7 +11,7 @@ use maxlzp\range\Margin\PositiveInfinityMargin;
  *
  * @package maxlzp\range
  */
-abstract class Range implements RangeInterface
+abstract class Range
 {
 
     /**
