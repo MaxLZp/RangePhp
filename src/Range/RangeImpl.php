@@ -2,9 +2,11 @@
 
 namespace maxlzp\range\Range;
 
+use maxlzp\range\Margin\Margin;
 use maxlzp\range\Margin\MarginInterface;
 use maxlzp\range\Range\Exception\InvalidMarginsOrderException;
 use maxlzp\range\Range\Exception\NoGapException;
+use maxlzp\range\Range\Exception\SplitValueIsOutOfRangeException;
 
 /**
  * Class RangeImpl
@@ -123,6 +125,28 @@ abstract class RangeImpl implements RangeInterface
     public function isEmpty(): bool
     {
         return $this->getLeft()->isEqualTo($this->getRight());
+    }
+
+    /**
+     * Split Range at given value
+     *
+     * @param float $value
+     *
+     * @return RangeInterface
+     *
+     * @throws InvalidMarginsOrderException
+     * @throws SplitValueIsOutOfRangeException
+     */
+    public function splitAt(float $value): RangeCollection
+    {
+        if ($this->includesValue($value))
+        {
+            return new RangeCollection([
+                new static($this->getLeft(), new Margin($value)),
+                new static(new Margin($value), $this->getRight())
+            ]);
+        }
+        throw new SplitValueIsOutOfRangeException(sprintf("Cannot split %s at %.2d", $this, $value));
     }
 
     /**

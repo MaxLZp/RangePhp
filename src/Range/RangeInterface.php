@@ -67,6 +67,15 @@ interface RangeInterface
     public function isEmpty(): bool;
 
     /**
+     * Split Range at given value
+     *
+     * @param float $value
+     *
+     * @return RangeInterface
+     */
+    public function splitAt(float $value): RangeCollection;
+
+    /**
      * Determines if some range is touching other range( some margin of the range is equal to some other range margin)
      *
      * @param RangeInterface $other Range to test
