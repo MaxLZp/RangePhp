@@ -10,6 +10,16 @@ use PHPUnit\Framework\TestCase;
 
 class RightOpenRangeTest extends TestCase
 {
+
+    /**
+     * @test
+     */
+    public function shouldConvertToExpectedString()
+    {
+        $expectedString = "[10, ∞)";
+        $range = Range::greaterOrEqualThan(10);
+        $this->assertEquals($expectedString, $range->__toString());
+    }
     /**
      * @test
      */

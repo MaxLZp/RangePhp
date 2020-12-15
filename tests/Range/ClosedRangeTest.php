@@ -13,6 +13,16 @@ class ClosedRangeTest extends TestCase
     /**
      * @test
      */
+    public function shouldConvertToExpectedString()
+    {
+        $expectedString = "[0, 10]";
+        $range = Range::between(0, 10);
+        $this->assertEquals($expectedString, $range->__toString());
+    }
+
+    /**
+     * @test
+     */
     public function shouldIncludeLeftMarginValue()
     {
         $left = 0;

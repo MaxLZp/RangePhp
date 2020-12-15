@@ -10,6 +10,15 @@ use PHPUnit\Framework\TestCase;
 
 class LeftOpenRangeTest extends TestCase
 {
+    /**
+     * @test
+     */
+    public function shouldConvertToExpectedString()
+    {
+        $expectedString = "(-∞, 10]";
+        $range = Range::lessOrEqualThan(10);
+        $this->assertEquals($expectedString, $range->__toString());
+    }
 
     /**
      * @test

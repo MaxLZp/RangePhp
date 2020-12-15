@@ -42,18 +42,6 @@ abstract class RangeImpl implements RangeInterface
 
     #endregion constructors
 
-    /**
-     * Guards from null method argument
-     * @param mixed $argument Argument to check
-     * @param string $exceptionMessage Message for exception
-     * @throws \Exception
-     */
-    protected static function guardNullArgument($argument, string $exceptionMessage = "Argument cannot be null")
-    {
-        if (null === $argument) {
-            throw new \Exception($exceptionMessage);
-        }
-    }
 
     /**
      * String representation of the range
@@ -165,6 +153,8 @@ abstract class RangeImpl implements RangeInterface
             $this->getRight()->isEqualTo($other->getLeft());
     }
 
+    #endregion RangeInterface implementation
+
     /**
      * Guards against invalid order of margins
      *
@@ -173,15 +163,25 @@ abstract class RangeImpl implements RangeInterface
      *
      * @throws InvalidMarginsOrderException
      */
-    private function guardInvalidMarginsOrder(MarginInterface $left, MarginInterface $right)
+    protected function guardInvalidMarginsOrder(MarginInterface $left, MarginInterface $right)
     {
-       if ($left->isGreaterThan($right))
-       {
-           throw new InvalidMarginsOrderException();
-       }
+        if ($left->isGreaterThan($right))
+        {
+            throw new InvalidMarginsOrderException();
+        }
     }
 
-    #endregion RangeInterface implementation
-
+    /**
+     * Guards from null method argument
+     * @param mixed $argument Argument to check
+     * @param string $exceptionMessage Message for exception
+     * @throws \Exception
+     */
+    protected static function guardNullArgument($argument, string $exceptionMessage = "Argument cannot be null")
+    {
+        if (null === $argument) {
+            throw new \Exception($exceptionMessage);
+        }
+    }
 
 }

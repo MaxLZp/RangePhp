@@ -2,15 +2,26 @@
 
 namespace maxlzp\range\tests\Range;
 
+use maxlzp\range\Margin\Margin;
 use maxlzp\range\Range\Exception\InvalidMarginsOrderException;
 use maxlzp\range\Range\Exception\NoGapException;
 use maxlzp\range\Range\Exception\SplitValueIsOutOfRangeException;
 use maxlzp\range\Range\Range;
 use maxlzp\range\Range\RangeImpl;
+use maxlzp\range\tests\Range\Mocks\RangeImplMock;
 use PHPUnit\Framework\TestCase;
 
 class RangeImplTest extends TestCase
 {
+    /**
+     * @test
+     */
+    public function shouldConvertToExpectedString()
+    {
+        $expectedString = "[0, 10]";
+        $range = new RangeImplMock(new Margin(0), new Margin(10));
+        $this->assertEquals($expectedString, $range->__toString());
+    }
 
     /**
      * @test
@@ -62,11 +73,11 @@ class RangeImplTest extends TestCase
     public function shouldCreateGaps()
     {
         $rng1 = Range::between(0, 1);
-        $rng2 = Range::between(1, 2);
-        $rng3 = Range::between(2, 3);
+        $rng2 = Range::between(2, 3);
+        $rng3 = Range::between(4, 5);
 
         $gap = $rng1->gap($rng2);
-        $gap2 = $rng2->gap($rng3);
+        $gap2 = $rng3->gap($rng2);
 
         $this->assertEquals($rng1->getRight(), $gap->getLeft());
         $this->assertEquals($rng2->getLeft(), $gap->getRight());

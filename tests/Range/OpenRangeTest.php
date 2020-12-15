@@ -14,6 +14,15 @@ class OpenRangeTest extends TestCase
     /**
      * @test
      */
+    public function shouldConvertToExpectedString()
+    {
+        $expectedString = "(0, 10)";
+        $range = Range::betweenOpen(0, 10);
+        $this->assertEquals($expectedString, $range->__toString());
+    }
+    /**
+     * @test
+     */
     public function shouldNotIncludeLeftMarginValue()
     {
         $left = 0;
