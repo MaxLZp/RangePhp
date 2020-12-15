@@ -37,18 +37,18 @@ interface RangeInterface
     /**
      * Range width
      *
-     * @return mixed
+     * @return float
      */
-    public function getWidth();
+    public function getWidth(): float;
 
     /**
      * Check if value belong to the range
      *
-     * @param mixed $value Value to test
+     * @param float $value Value to test
      *
      * @return bool True if range includes value; false - otherwise</returns>
      */
-    public function includesValue($value): bool;
+    public function includesValue(float $value): bool;
 
     /**
      * Check if range includes other range completely

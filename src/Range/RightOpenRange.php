@@ -16,19 +16,6 @@ class RightOpenRange extends RangeImpl
     #region RangeInterface implementation
 
     /**
-     * Check if value belong to the range
-     *
-     * @param mixed $value Value to test
-     *
-     * @return bool True if range includes value; false - otherwise</returns>
-     */
-    public function includesValue($value): bool
-    {
-        return $this->getLeft()->isLessOrEqualThanValue($value)
-            && $this->getRight()->isGreaterOrEqualThanValue($value);
-    }
-
-    /**
      * Check if range includes other range completely
      *
      * @param RangeInterface $other Other range
@@ -40,6 +27,20 @@ class RightOpenRange extends RangeImpl
         return $this->getLeft()->isLessOrEqualThan($other->getLeft())
             && $this->getRight()->isGreaterOrEqualThan($other->getRight());
     }
+
+    /**
+     * Check if value belong to the range
+     *
+     * @param float $value Value to test
+     *
+     * @return bool True if range includes value; false - otherwise</returns>
+     */
+    public function includesValue(float $value): bool
+    {
+        return $this->getLeft()->isLessOrEqualThanValue($value)
+            && $this->getRight()->isGreaterOrEqualThanValue($value);
+    }
+
 
     #endregion RangeInterface implementation
 

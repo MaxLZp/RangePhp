@@ -3,6 +3,7 @@
 namespace maxlzp\range\Range;
 
 use maxlzp\range\Margin\MarginInterface;
+use maxlzp\range\Range\Exception\InvalidMarginsOrderException;
 use maxlzp\range\Range\Exception\NoGapException;
 
 /**
@@ -28,10 +29,11 @@ abstract class RangeImpl implements RangeInterface
      *
      * @param MarginInterface $left
      * @param MarginInterface $right
+     * @throws InvalidMarginsOrderException
      */
     public function __construct(MarginInterface $left, MarginInterface $right)
     {
-        // TODO: verify margins order: left must less or equal than right
+        $this->guardInvalidMarginsOrder($left, $right);
         $this->left = $left;
         $this->right = $right;
     }
@@ -106,9 +108,9 @@ abstract class RangeImpl implements RangeInterface
     /**
      * Range width
      *
-     * @return mixed
+     * @return float
      */
-    public function getWidth()
+    public function getWidth(): float
     {
         return $this->getRight()->getValue() - $this->getLeft()->getValue();
     }
@@ -137,6 +139,22 @@ abstract class RangeImpl implements RangeInterface
         self::guardNullArgument($other);
         return $this->getLeft()->isEqualTo($other->getRight()) ||
             $this->getRight()->isEqualTo($other->getLeft());
+    }
+
+    /**
+     * Guards against invalid order of margins
+     *
+     * @param MarginInterface $left
+     * @param MarginInterface $right
+     *
+     * @throws InvalidMarginsOrderException
+     */
+    private function guardInvalidMarginsOrder(MarginInterface $left, MarginInterface $right)
+    {
+       if ($left->isGreaterThan($right))
+       {
+           throw new InvalidMarginsOrderException();
+       }
     }
 
     #endregion RangeInterface implementation

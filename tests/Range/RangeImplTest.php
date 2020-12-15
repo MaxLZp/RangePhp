@@ -2,6 +2,7 @@
 
 namespace maxlzp\range\tests\Range;
 
+use maxlzp\range\Range\Exception\InvalidMarginsOrderException;
 use maxlzp\range\Range\Exception\NoGapException;
 use maxlzp\range\Range\Range;
 use maxlzp\range\Range\RangeImpl;
@@ -9,6 +10,15 @@ use PHPUnit\Framework\TestCase;
 
 class RangeImplTest extends TestCase
 {
+
+    /**
+     * @test
+     */
+    public function shouldTrowExceptionWhenCreateingRangeWithInvalidMarginsOrder()
+    {
+        $this->expectException(InvalidMarginsOrderException::class);
+        $range = Range::between(100, 10);
+    }
 
     /**
      * @test
