@@ -21,7 +21,7 @@ class NegativeInfinityMargin extends Margin
      */
     public function __toString()
     {
-        return \sprintf("-%s", MarginConstants::INFINITY_STRING);
+        return sprintf("-%s", MarginConstants::INFINITY_STRING);
     }
 
 }

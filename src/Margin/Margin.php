@@ -29,7 +29,7 @@ class Margin implements MarginInterface
      */
     public function __toString()
     {
-        return \sprintf("%s", $this->value);
+        return sprintf("%s", $this->value);
     }
 
     #region MarginInterface implementation

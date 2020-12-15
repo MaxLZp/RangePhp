@@ -57,7 +57,7 @@ abstract class RangeImpl implements RangeInterface
      */
     public function __toString()
     {
-        return \sprintf("[%s, %s]", $this->getLeft(), $this->getRight());
+        return sprintf("[%s, %s]", $this->getLeft(), $this->getRight());
     }
 
     #region RangeInterface implementation
@@ -80,7 +80,7 @@ abstract class RangeImpl implements RangeInterface
             return new static($other->getRight(), $this->getLeft());
         }
 
-        throw new NoGapException(\sprintf("There is no gap between %s and %s", $this, $other));
+        throw new NoGapException(sprintf("There is no gap between %s and %s", $this, $other));
     }
 
     /**

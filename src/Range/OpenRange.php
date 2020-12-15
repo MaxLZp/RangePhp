@@ -51,6 +51,6 @@ class OpenRange extends RangeImpl
      */
     public function __toString()
     {
-        return \sprintf("(%s, %s)", $this->getLeft(), $this->getRight());
+        return sprintf("(%s, %s)", $this->getLeft(), $this->getRight());
     }
 }
