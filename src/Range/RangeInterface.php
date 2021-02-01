@@ -3,6 +3,7 @@
 namespace maxlzp\range\Range;
 
 use maxlzp\range\Margin\MarginInterface;
+use maxlzp\range\Range\Collection\RangeCollection;
 
 /**
  * Interface RangeInterface
@@ -71,7 +72,7 @@ interface RangeInterface
      *
      * @param float $value
      *
-     * @return RangeInterface
+     * @return RangeCollection
      */
     public function splitAt(float $value): RangeCollection;
 

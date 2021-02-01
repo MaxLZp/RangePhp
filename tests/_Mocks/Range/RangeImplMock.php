@@ -1,13 +1,13 @@
 <?php
 
-namespace maxlzp\range\tests\Range\Mocks;
+namespace maxlzp\range\tests\_Mocks\Range;
 
 use maxlzp\range\Range\RangeImpl;
 use maxlzp\range\Range\RangeInterface;
 
 /**
  * Class RangeImplMock
- * @package maxlzp\range\tests\Range\Mocks
+ * @package maxlzp\range\tests\Range\_Mocks
  */
 class RangeImplMock extends RangeImpl
 {

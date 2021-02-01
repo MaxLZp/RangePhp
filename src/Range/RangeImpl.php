@@ -4,6 +4,7 @@ namespace maxlzp\range\Range;
 
 use maxlzp\range\Margin\Margin;
 use maxlzp\range\Margin\MarginInterface;
+use maxlzp\range\Range\Collection\RangeCollection;
 use maxlzp\range\Range\Exception\InvalidMarginsOrderException;
 use maxlzp\range\Range\Exception\NoGapException;
 use maxlzp\range\Range\Exception\SplitValueIsOutOfRangeException;
@@ -120,7 +121,7 @@ abstract class RangeImpl implements RangeInterface
      *
      * @param float $value
      *
-     * @return RangeInterface
+     * @return RangeCollection
      *
      * @throws InvalidMarginsOrderException
      * @throws SplitValueIsOutOfRangeException

@@ -8,7 +8,7 @@ use maxlzp\range\Range\Exception\NoGapException;
 use maxlzp\range\Range\Exception\SplitValueIsOutOfRangeException;
 use maxlzp\range\Range\Range;
 use maxlzp\range\Range\RangeImpl;
-use maxlzp\range\tests\Range\Mocks\RangeImplMock;
+use maxlzp\range\tests\_Mocks\Range\RangeImplMock;
 use PHPUnit\Framework\TestCase;
 
 class RangeImplTest extends TestCase
